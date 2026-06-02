@@ -1,641 +1,846 @@
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<!DOCTYPE html><html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Texas Elite Air Conditioning & Heating LLC | Luxury Climate Control</title>
-    <meta name="description" content="Bespoke temperature management systems for those who demand flawless indoor climates in Texas.">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;800&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#07111f" />
+  <meta name="description" content="Texas Elite Air Conditioning & Heating LLC delivers premium AC repair, installation, maintenance, and heating services across Texas with fast response and expert care." />
+  <title>Texas Elite Air Conditioning & Heating LLC</title>  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">  <script src="https://cdn.tailwindcss.com"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>  <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'Inter', 'system-ui', 'sans-serif']
+          },
+          colors: {
+            elite: {
+              50: '#eef8ff',
+              100: '#d9efff',
+              200: '#b4dfff',
+              300: '#83c8ff',
+              400: '#4faeff',
+              500: '#1f8cff',
+              600: '#0a66db',
+              700: '#0a4fb0',
+              800: '#0a3e89',
+              900: '#082f66'
+            },
+            ink: '#07111f',
+            navy: '#0b1830',
+            mist: '#f4f7fb'
+          },
+          boxShadow: {
+            glow: '0 0 0 1px rgba(255,255,255,0.08), 0 18px 45px rgba(10, 102, 219, 0.18), 0 30px 80px rgba(0,0,0,0.35)',
+            soft: '0 10px 30px rgba(0,0,0,0.18), 0 2px 10px rgba(0,0,0,0.12)',
+            glass: '0 20px 60px rgba(0,0,0,0.28), inset 0 1px 0 rgba(255,255,255,0.12)'
+          },
+          backgroundImage: {
+            'radial-glow': 'radial-gradient(circle at 20% 20%, rgba(79,174,255,0.18), transparent 32%), radial-gradient(circle at 80% 30%, rgba(10,102,219,0.16), transparent 28%), radial-gradient(circle at 50% 80%, rgba(255,255,255,0.06), transparent 30%)'
+          }
+        }
+      }
+    }
+  </script>  <style>
+    :root {
+      --bg: #07111f;
+      --bg-2: #091424;
+      --text: #eaf2ff;
+      --muted: rgba(234, 242, 255, 0.68);
+      --line: rgba(255, 255, 255, 0.12);
+      --line-strong: rgba(255, 255, 255, 0.18);
+      --card: rgba(8, 16, 31, 0.62);
+      --card-2: rgba(11, 24, 48, 0.52);
+      --accent: #4faeff;
+      --accent-2: #0a66db;
+    }
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-                    },
-                    colors: {
-                        brand: {
-                            900: '#060913',
-                            800: '#0B1121',
-                            700: '#111827',
-                            accent: '#00F0FF', // Neon Cyan for Cooling
-                            heat: '#FF5E00',   // Deep Orange for Heating
-                        }
-                    },
-                    backgroundImage: {
-                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-                    }
-                }
-            }
-        }
-    </script>
+    html {
+      scroll-behavior: auto;
+      background: var(--bg);
+    }
 
-    <style>
-        :root {
-            background-color: #060913;
-            color: #ffffff;
-            overflow-x: hidden;
-        }
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, sans-serif;
+      background:
+        linear-gradient(180deg, rgba(7,17,31,0.72), rgba(7,17,31,0.92)),
+        radial-gradient(circle at top, rgba(79,174,255,0.16), transparent 35%),
+        radial-gradient(circle at bottom, rgba(10,102,219,0.12), transparent 30%),
+        linear-gradient(180deg, #07111f 0%, #091423 55%, #07111f 100%);
+      color: var(--text);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: geometricPrecision;
+    }
 
-        body {
-            background-color: #060913;
-            background-image: 
-                radial-gradient(at 0% 0%, rgba(0, 240, 255, 0.05) 0px, transparent 50%),
-                radial-gradient(at 100% 100%, rgba(255, 94, 0, 0.05) 0px, transparent 50%);
-            background-attachment: fixed;
-            -webkit-font-smoothing: antialiased;
-        }
+    ::selection {
+      background: rgba(79, 174, 255, 0.34);
+      color: white;
+    }
 
-        /* Lenis Smooth Scroll Recommended CSS */
-        html.lenis {
-            height: auto;
-        }
-        .lenis.lenis-smooth {
-            scroll-behavior: auto;
-        }
-        .lenis.lenis-smooth [data-lenis-prevent] {
-            overscroll-behavior: contain;
-        }
-        .lenis.lenis-stopped {
-            overflow: hidden;
-        }
-        .lenis.lenis-scrolling iframe {
-            pointer-events: none;
-        }
+    .noise {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 2;
+      opacity: 0.05;
+      mix-blend-mode: soft-light;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.35) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.25) 1px, transparent 1px);
+      background-size: 22px 22px;
+      mask-image: radial-gradient(circle at center, black 55%, transparent 100%);
+    }
 
-        /* Premium Glassmorphism */
-        .glass-panel {
-            background: rgba(255, 255, 255, 0.02);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
-        }
+    .glass {
+      background: linear-gradient(180deg, rgba(255,255,255,0.11), rgba(255,255,255,0.05));
+      backdrop-filter: blur(18px) saturate(140%);
+      -webkit-backdrop-filter: blur(18px) saturate(140%);
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 18px 50px rgba(0,0,0,0.28), inset 0 1px 0 rgba(255,255,255,0.12);
+    }
 
-        /* Hover Glass Card */
-        .glass-card {
-            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .glass-card:hover {
-            transform: translateY(-8px) scale(1.03);
-            border-color: rgba(0, 240, 255, 0.3);
-            box-shadow: 0 10px 40px -10px rgba(0, 240, 255, 0.15), 0 0 20px rgba(0, 240, 255, 0.05) inset;
-        }
-        .glass-card.heat:hover {
-            border-color: rgba(255, 94, 0, 0.3);
-            box-shadow: 0 10px 40px -10px rgba(255, 94, 0, 0.15), 0 0 20px rgba(255, 94, 0, 0.05) inset;
-        }
+    .glass-dark {
+      background: linear-gradient(180deg, rgba(13, 22, 40, 0.72), rgba(8, 16, 31, 0.58));
+      backdrop-filter: blur(18px) saturate(135%);
+      -webkit-backdrop-filter: blur(18px) saturate(135%);
+      border: 1px solid rgba(255,255,255,0.10);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.32), inset 0 1px 0 rgba(255,255,255,0.10);
+    }
 
-        /* Nav Link Underline Hover */
-        .nav-link {
-            position: relative;
-            text-decoration: none;
-        }
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            transform: scaleX(0);
-            height: 2px;
-            bottom: -4px;
-            left: 0;
-            background: linear-gradient(90deg, #00F0FF, #FF5E00);
-            transform-origin: bottom right;
-            transition: transform 0.4s cubic-bezier(0.86, 0, 0.07, 1);
-        }
-        .nav-link:hover::after {
-            transform: scaleX(1);
-            transform-origin: bottom left;
-        }
+    .hero-grid {
+      background-image:
+        linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+      background-size: 56px 56px;
+      mask-image: linear-gradient(180deg, rgba(0,0,0,0.8), transparent 92%);
+      opacity: 0.5;
+    }
 
-        /* Gradient Text */
-        .text-gradient {
-            background: linear-gradient(135deg, #ffffff 0%, #a1a1aa 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .text-gradient-brand {
-            background: linear-gradient(135deg, #00F0FF 0%, #3b82f6 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
+    .hero-orb {
+      filter: blur(24px);
+      opacity: 0.8;
+      transform: translateZ(0);
+      will-change: transform;
+    }
 
-        /* Floating Blobs */
-        .blob {
-            position: absolute;
-            filter: blur(120px);
-            z-index: -1;
-            opacity: 0.4;
-            animation: float 20s infinite alternate cubic-bezier(0.45, 0.05, 0.55, 0.95);
-        }
-        @keyframes float {
-            0% { transform: translate(0, 0) rotate(0deg) scale(1); }
-            50% { transform: translate(50px, 100px) rotate(180deg) scale(1.1); }
-            100% { transform: translate(-50px, 50px) rotate(360deg) scale(0.9); }
-        }
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      will-change: transform, opacity;
+    }
 
-        /* Hide scrollbar but keep functionality */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #060913;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: rgba(255, 255, 255, 0.2);
-        }
+    .nav-link {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.35rem 0;
+      color: rgba(234,242,255,0.76);
+      transition: color 0.3s ease;
+    }
 
-        /* Accordion Customization */
-        .accordion-content {
-            display: grid;
-            grid-template-rows: 0fr;
-            transition: grid-template-rows 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .accordion-content.open {
-            grid-template-rows: 1fr;
-        }
-        .accordion-inner {
-            overflow: hidden;
-        }
-        .accordion-icon {
-            transition: transform 0.4s ease;
-        }
-        .accordion-btn.active .accordion-icon {
-            transform: rotate(45deg);
-        }
-        
-        /* Utility to prevent FOUC on GSAP items */
-        .reveal-up, .reveal-fade {
-            opacity: 0;
-            visibility: hidden;
-        }
-    </style>
-</head>
-<body class="antialiased selection:bg-brand-accent/30 selection:text-white">
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -0.15rem;
+      width: 100%;
+      height: 1px;
+      transform: scaleX(0);
+      transform-origin: left;
+      background: linear-gradient(90deg, rgba(79,174,255,0.2), rgba(79,174,255,1), rgba(255,255,255,0.2));
+      transition: transform 0.35s ease;
+    }
 
-    <div class="blob bg-brand-accent/40 w-[600px] h-[600px] rounded-full top-[-200px] left-[-200px]"></div>
-    <div class="blob bg-brand-heat/30 w-[500px] h-[500px] rounded-full top-[40%] right-[-150px]" style="animation-delay: -5s;"></div>
-    <div class="blob bg-blue-900/40 w-[700px] h-[700px] rounded-full bottom-[-200px] left-[10%]"></div>
+    .nav-link:hover {
+      color: #ffffff;
+    }
 
-    <nav class="fixed w-full z-50 top-0 transition-all duration-300 glass-panel border-b-0 border-x-0 border-t-0" id="navbar">
-        <div class="max-w-7xl mx-auto px-6 lg:px-12">
-            <div class="flex items-center justify-between h-24">
-                <div class="flex-shrink-0 cursor-pointer">
-                    <a href="#" class="flex flex-col">
-                        <span class="text-2xl font-extrabold tracking-tight text-white uppercase leading-none">Texas Elite</span>
-                        <span class="text-[0.65rem] font-medium tracking-widest text-brand-accent uppercase mt-1">Air Conditioning & Heating</span>
-                    </a>
-                </div>
-                
-                <div class="hidden md:flex items-center space-x-10">
-                    <a href="#services" class="nav-link text-sm font-semibold text-gray-300 hover:text-white transition-colors">Services</a>
-                    <a href="#benefits" class="nav-link text-sm font-semibold text-gray-300 hover:text-white transition-colors">The Elite Difference</a>
-                    <a href="#packages" class="nav-link text-sm font-semibold text-gray-300 hover:text-white transition-colors">Packages</a>
-                    <a href="#faq" class="nav-link text-sm font-semibold text-gray-300 hover:text-white transition-colors">FAQ</a>
-                </div>
+    .nav-link:hover::after {
+      transform: scaleX(1);
+    }
 
-                <div class="hidden md:block">
-                    <a href="tel:+15127497721" class="magnetic inline-flex items-center justify-center px-6 py-3 border border-white/20 rounded-full text-sm font-bold text-white bg-white/5 hover:bg-white/10 transition-all duration-300 overflow-hidden group">
-                        <span class="relative z-10 flex items-center gap-2">
-                            <i class="fa-solid fa-phone text-brand-accent"></i>
-                            +1 512-749-7721
-                        </span>
-                    </a>
-                </div>
+    .button-liquid {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      transform: translateZ(0);
+      box-shadow: 0 18px 40px rgba(10, 102, 219, 0.22), inset 0 1px 0 rgba(255,255,255,0.18);
+    }
 
-                <div class="md:hidden">
-                    <button class="text-gray-300 hover:text-white focus:outline-none">
-                        <i class="fa-solid fa-bars text-2xl"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
+    .button-liquid::before {
+      content: '';
+      position: absolute;
+      inset: -40%;
+      background: conic-gradient(from 180deg, rgba(255,255,255,0), rgba(255,255,255,0.22), rgba(79,174,255,0.95), rgba(255,255,255,0.20), rgba(255,255,255,0));
+      animation: spin 5.5s linear infinite;
+      opacity: 0.8;
+      z-index: -2;
+    }
+
+    .button-liquid::after {
+      content: '';
+      position: absolute;
+      inset: 1px;
+      background: linear-gradient(135deg, rgba(10,102,219,1), rgba(79,174,255,1));
+      border-radius: inherit;
+      z-index: -1;
+      transition: transform 0.35s ease, filter 0.35s ease;
+    }
+
+    .button-liquid:hover::after {
+      transform: scale(1.04);
+      filter: saturate(1.15) brightness(1.05);
+    }
+
+    .button-ghost {
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,0.14);
+      transition: transform 0.35s ease, border-color 0.35s ease, background 0.35s ease;
+    }
+
+    .button-ghost:hover {
+      transform: translateY(-2px);
+      border-color: rgba(79,174,255,0.32);
+      background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.04));
+    }
+
+    .magnetic {
+      display: inline-flex;
+      will-change: transform;
+    }
+
+    .premium-card {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.04));
+      backdrop-filter: blur(16px) saturate(135%);
+      -webkit-backdrop-filter: blur(16px) saturate(135%);
+      border: 1px solid rgba(255,255,255,0.10);
+      box-shadow: 0 22px 60px rgba(0,0,0,0.30), inset 0 1px 0 rgba(255,255,255,0.08);
+      transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+    }
+
+    .premium-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.10), transparent 35%, transparent 65%, rgba(79,174,255,0.12));
+      opacity: 0;
+      transition: opacity 0.35s ease;
+      pointer-events: none;
+    }
+
+    .premium-card:hover {
+      transform: translateY(-6px) scale(1.03);
+      border-color: rgba(79,174,255,0.28);
+      box-shadow: 0 30px 90px rgba(0,0,0,0.36), 0 0 0 1px rgba(79,174,255,0.10), 0 0 40px rgba(79,174,255,0.10), inset 0 1px 0 rgba(255,255,255,0.10);
+    }
+
+    .premium-card:hover::before {
+      opacity: 1;
+    }
+
+    .bento-item {
+      position: relative;
+      overflow: hidden;
+      min-height: 100%;
+    }
+
+    .bento-item::after {
+      content: '';
+      position: absolute;
+      inset: auto -8% -18% auto;
+      width: 220px;
+      height: 220px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(79,174,255,0.18), transparent 68%);
+      filter: blur(10px);
+      pointer-events: none;
+    }
+
+    .section-label {
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      font-size: 0.72rem;
+      color: rgba(234,242,255,0.64);
+    }
+
+    .hero-text-shadow {
+      text-shadow: 0 12px 30px rgba(0,0,0,0.35);
+    }
+
+    .stat-pill {
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.09);
+    }
+
+    .scroll-indicator {
+      background: linear-gradient(180deg, rgba(255,255,255,0.26), rgba(255,255,255,0.04));
+      border: 1px solid rgba(255,255,255,0.14);
+    }
+
+    .hero-clip {
+      clip-path: polygon(0 0, 100% 0, 100% 84%, 0 100%);
+    }
+
+    .mask-fade {
+      mask-image: linear-gradient(180deg, rgba(0,0,0,1), rgba(0,0,0,0.98), rgba(0,0,0,0.88), transparent);
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .float-1 { animation: float1 12s ease-in-out infinite; }
+    .float-2 { animation: float2 15s ease-in-out infinite; }
+    .float-3 { animation: float3 18s ease-in-out infinite; }
+
+    @keyframes float1 {
+      0%, 100% { transform: translate3d(0,0,0) scale(1); }
+      50% { transform: translate3d(18px,-20px,0) scale(1.06); }
+    }
+
+    @keyframes float2 {
+      0%, 100% { transform: translate3d(0,0,0) scale(1); }
+      50% { transform: translate3d(-22px,16px,0) scale(1.08); }
+    }
+
+    @keyframes float3 {
+      0%, 100% { transform: translate3d(0,0,0) scale(1); }
+      50% { transform: translate3d(14px,22px,0) scale(1.05); }
+    }
+
+    .line-glow {
+      background: linear-gradient(90deg, transparent, rgba(79,174,255,0.55), transparent);
+      filter: blur(0.2px);
+    }
+
+    .footer-link {
+      color: rgba(234,242,255,0.72);
+      transition: color 0.25s ease, transform 0.25s ease;
+    }
+
+    .footer-link:hover {
+      color: white;
+      transform: translateX(3px);
+    }
+
+    .icon-chip {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.04));
+      border: 1px solid rgba(255,255,255,0.10);
+      transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+    }
+
+    .icon-chip:hover {
+      transform: translateY(-3px);
+      border-color: rgba(79,174,255,0.26);
+      background: linear-gradient(180deg, rgba(79,174,255,0.16), rgba(255,255,255,0.05));
+    }
+
+    @media (max-width: 640px) {
+      .mobile-tight {
+        letter-spacing: -0.03em;
+      }
+    }
+  </style></head>
+<body class="font-sans text-white">
+  <div class="noise"></div>  <div class="fixed inset-0 pointer-events-none z-[1] overflow-hidden">
+    <div class="absolute -top-32 -left-24 w-96 h-96 rounded-full bg-elite-500/20 hero-orb float-1"></div>
+    <div class="absolute top-1/4 -right-20 w-[28rem] h-[28rem] rounded-full bg-sky-400/10 hero-orb float-2"></div>
+    <div class="absolute bottom-0 left-1/3 w-[26rem] h-[26rem] rounded-full bg-white/6 hero-orb float-3"></div>
+  </div>  <header class="fixed top-0 left-0 right-0 z-50">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-4">
+      <div class="glass-dark rounded-[1.4rem] px-4 sm:px-6 py-4 flex items-center justify-between gap-4">
+        <a href="#home" class="flex items-center gap-3 group">
+          <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-elite-400 via-elite-500 to-elite-700 shadow-glow flex items-center justify-center overflow-hidden relative">
+            <span class="absolute inset-0 bg-white/20 blur-xl opacity-50"></span>
+            <span class="relative text-white font-black text-lg tracking-tight">TE</span>
+          </div>
+          <div>
+            <div class="text-sm font-extrabold tracking-tight leading-none">Texas Elite</div>
+            <div class="text-xs text-white/55 leading-none mt-1">Air Conditioning &amp; Heating LLC</div>
+          </div>
+        </a><nav class="hidden lg:flex items-center gap-8 text-sm font-medium">
+      <a class="nav-link" href="#services">Services</a>
+      <a class="nav-link" href="#why">Why Elite</a>
+      <a class="nav-link" href="#process">Process</a>
+      <a class="nav-link" href="#contact">Contact</a>
     </nav>
 
-    <section class="relative min-h-screen flex items-center justify-center pt-24 pb-12 px-6 overflow-hidden">
-        <div class="max-w-7xl mx-auto text-center z-10 relative">
-            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel border-white/10 mb-8 reveal-up">
-                <span class="w-2 h-2 rounded-full bg-brand-accent animate-pulse"></span>
-                <span class="text-xs font-bold uppercase tracking-widest text-gray-300">Setting the Standard in Texas</span>
+    <div class="flex items-center gap-3">
+      <a href="tel:+15127497721" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-full button-ghost text-sm font-semibold text-white/90 magnetic">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_20px_rgba(52,211,153,0.85)]"></span>
+        Call +1 512-749-7721
+      </a>
+      <a href="#contact" class="inline-flex items-center gap-2 px-4 py-2 rounded-full button-liquid text-sm font-extrabold text-white magnetic">
+        Request Service
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+  </header>  <main id="home" class="relative pt-28 sm:pt-32">
+    <section class="relative overflow-hidden hero-clip">
+      <div class="absolute inset-0 hero-grid pointer-events-none"></div>
+      <div class="absolute inset-0 bg-radial-glow pointer-events-none"></div><div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="grid lg:grid-cols-12 gap-6 items-end min-h-[calc(100vh-7rem)] py-10 lg:py-16">
+      <div class="lg:col-span-7 xl:col-span-8">
+        <div class="reveal inline-flex items-center gap-2 px-4 py-2 rounded-full glass-dark mb-6">
+          <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 shadow-[0_0_24px_rgba(74,222,128,0.7)]"></span>
+          <span class="text-sm font-semibold text-white/82">Premium HVAC comfort, fast response, meticulous workmanship</span>
+        </div>
+
+        <h1 class="reveal hero-text-shadow font-display font-black tracking-tight mobile-tight text-5xl sm:text-6xl lg:text-7xl xl:text-8xl leading-[0.92] max-w-4xl">
+          Air conditioning and heating that feels <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-elite-100 to-elite-400">engineered, not improvised.</span>
+        </h1>
+
+        <p class="reveal mt-6 max-w-2xl text-base sm:text-lg lg:text-xl text-white/70 leading-8">
+          Texas Elite Air Conditioning &amp; Heating LLC keeps homes and businesses consistently comfortable with expert AC repair, precision installations, seasonal maintenance, and dependable heating service when the weather turns brutal.
+        </p>
+
+        <div class="reveal mt-8 flex flex-col sm:flex-row gap-4">
+          <a href="tel:+15127497721" class="magnetic inline-flex items-center justify-center gap-3 px-7 py-4 rounded-full button-liquid text-white font-extrabold text-sm sm:text-base">
+            <span>Call +1 512-749-7721</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.5 3.5H9.8C10.4 3.5 10.9 3.9 11.1 4.4L12.1 7.1C12.3 7.7 12.1 8.3 11.7 8.8L10.2 10.3C11.4 12.7 13.3 14.6 15.7 15.8L17.2 14.3C17.7 13.9 18.3 13.7 18.9 13.9L21.6 14.9C22.1 15.1 22.5 15.6 22.5 16.2V18.5C22.5 20 21.3 21.1 19.8 21C11 20.7 4.3 14 4 5.2C3.9 3.7 5 2.5 6.5 2.5H7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="#services" class="magnetic inline-flex items-center justify-center gap-3 px-7 py-4 rounded-full button-ghost text-white font-semibold text-sm sm:text-base">
+            Explore Services
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 5V19M12 19L5 12M12 19L19 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+
+        <div class="reveal mt-10 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-4xl">
+          <div class="stat-pill rounded-2xl p-4">
+            <div class="text-2xl font-black tracking-tight">24/7</div>
+            <div class="text-sm text-white/60 mt-1">Emergency response</div>
+          </div>
+          <div class="stat-pill rounded-2xl p-4">
+            <div class="text-2xl font-black tracking-tight">AC</div>
+            <div class="text-sm text-white/60 mt-1">Repair &amp; install</div>
+          </div>
+          <div class="stat-pill rounded-2xl p-4">
+            <div class="text-2xl font-black tracking-tight">Heat</div>
+            <div class="text-sm text-white/60 mt-1">Furnace service</div>
+          </div>
+          <div class="stat-pill rounded-2xl p-4">
+            <div class="text-2xl font-black tracking-tight">Texas</div>
+            <div class="text-sm text-white/60 mt-1">Comfort focused</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:col-span-5 xl:col-span-4 relative lg:pb-10">
+        <div class="reveal premium-card rounded-[2rem] p-5 sm:p-6 lg:p-7">
+          <div class="flex items-center justify-between mb-6">
+            <div>
+              <div class="section-label">Why clients choose us</div>
+              <h2 class="mt-2 text-2xl font-extrabold tracking-tight">Luxury-level comfort work</h2>
             </div>
-            
-            <h1 class="text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tighter leading-[1.05] mb-6 reveal-up">
-                Absolute Climate Control.<br>
-                <span class="text-gradient">Zero Compromise.</span>
-            </h1>
-            
-            <p class="max-w-2xl mx-auto text-lg md:text-xl text-gray-400 font-light mb-12 reveal-up leading-relaxed">
-                Texas Elite Air Conditioning & Heating delivers bespoke, high-efficiency temperature management systems for estates and premium commercial spaces that demand flawless indoor climates.
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-white/16 to-white/4 border border-white/10 flex items-center justify-center shadow-soft">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2L19 6V18L12 22L5 18V6L12 2Z" stroke="currentColor" stroke-opacity="0.9" stroke-width="1.7"/><path d="M12 22V12" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M5 6L12 10L19 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+          </div>
+
+          <div class="grid gap-4">
+            <div class="glass rounded-2xl p-4">
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <div class="text-sm text-white/60">Precision diagnostics</div>
+                  <div class="mt-2 font-semibold">We find the actual failure point instead of guessing.</div>
+                </div>
+                <span class="text-elite-200 font-bold">01</span>
+              </div>
+            </div>
+            <div class="glass rounded-2xl p-4">
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <div class="text-sm text-white/60">Clean install standards</div>
+                  <div class="mt-2 font-semibold">Neat, high-trust work that looks right and performs right.</div>
+                </div>
+                <span class="text-elite-200 font-bold">02</span>
+              </div>
+            </div>
+            <div class="glass rounded-2xl p-4">
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <div class="text-sm text-white/60">Comfort protection</div>
+                  <div class="mt-2 font-semibold">Maintenance that reduces surprise breakdowns and wasted energy.</div>
+                </div>
+                <span class="text-elite-200 font-bold">03</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6 pt-6 border-t border-white/10 flex items-center justify-between gap-4">
+            <div>
+              <div class="text-sm text-white/58">Speak with a technician</div>
+              <div class="text-lg font-bold tracking-tight">+1 512-749-7721</div>
+            </div>
+            <a href="tel:+15127497721" class="inline-flex items-center justify-center w-14 h-14 rounded-full button-liquid magnetic text-white">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M7.5 3.5H9.8C10.4 3.5 10.9 3.9 11.1 4.4L12.1 7.1C12.3 7.7 12.1 8.3 11.7 8.8L10.2 10.3C11.4 12.7 13.3 14.6 15.7 15.8L17.2 14.3C17.7 13.9 18.3 13.7 18.9 13.9L21.6 14.9C22.1 15.1 22.5 15.6 22.5 16.2V18.5C22.5 20 21.3 21.1 19.8 21C11 20.7 4.3 14 4 5.2C3.9 3.7 5 2.5 6.5 2.5H7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="reveal absolute -bottom-8 -left-2 sm:-left-10 glass-dark rounded-[1.4rem] px-4 py-3 shadow-soft max-w-xs hidden md:flex items-center gap-3">
+          <span class="w-3 h-3 rounded-full bg-emerald-400 shadow-[0_0_18px_rgba(74,222,128,0.8)]"></span>
+          <div class="text-sm text-white/78">Fast, professional service built to keep your space comfortable.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services" class="relative py-24 sm:py-28">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="reveal flex items-end justify-between gap-6 mb-10 sm:mb-14">
+      <div>
+        <div class="section-label">Services</div>
+        <h2 class="mt-3 font-display text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight">A bento grid of serious HVAC capability.</h2>
+      </div>
+      <p class="hidden lg:block max-w-xl text-white/65 leading-7">
+        Every service is built around the same standard: clear communication, premium execution, and comfort that lasts.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-5">
+      <article class="reveal premium-card bento-item md:col-span-7 rounded-[2rem] p-6 sm:p-8 lg:p-10 min-h-[22rem]">
+        <div class="flex flex-col h-full justify-between gap-8">
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/8 border border-white/10 text-xs font-semibold text-white/75">Core service</div>
+            <h3 class="mt-5 text-3xl sm:text-4xl font-black tracking-tight">Air conditioning repair that gets to the real problem.</h3>
+            <p class="mt-4 max-w-2xl text-white/68 leading-7">
+              From weak airflow and refrigerant issues to electrical faults and inconsistent cooling, we diagnose with discipline and repair with precision.
             </p>
-            
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-6 reveal-up">
-                <a href="#packages" class="magnetic w-full sm:w-auto inline-flex justify-center items-center px-8 py-4 rounded-full text-sm font-bold text-brand-900 bg-white hover:scale-105 transition-transform duration-300 shadow-[0_0_20px_rgba(255,255,255,0.3)]">
-                    Explore Packages
-                </a>
-                <a href="tel:+15127497721" class="magnetic w-full sm:w-auto inline-flex justify-center items-center px-8 py-4 rounded-full text-sm font-bold text-white glass-panel hover:bg-white/10 transition-colors duration-300 border border-white/20">
-                    <i class="fa-solid fa-phone mr-2 text-brand-accent"></i> Dispatch an Expert
-                </a>
+          </div>
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div class="glass rounded-2xl p-4">
+              <div class="text-sm text-white/55">Common outcomes</div>
+              <div class="mt-2 font-semibold">Better cooling, steadier performance, fewer repeat problems.</div>
             </div>
+            <div class="glass rounded-2xl p-4">
+              <div class="text-sm text-white/55">Best for</div>
+              <div class="mt-2 font-semibold">Homes and businesses that cannot afford discomfort.</div>
+            </div>
+          </div>
         </div>
-    </section>
+      </article>
 
-    <section id="benefits" class="py-24 px-6 relative z-10">
-        <div class="max-w-7xl mx-auto">
-            <div class="mb-16 text-center reveal-up">
-                <h2 class="text-3xl md:text-5xl font-extrabold tracking-tight mb-4">The Architecture of <span class="text-gradient-brand">Comfort</span></h2>
-                <p class="text-gray-400 font-light max-w-xl mx-auto">Engineered for the relentless Texas heat. Designed for invisible, silent luxury.</p>
+      <article class="reveal premium-card bento-item md:col-span-5 rounded-[2rem] p-6 sm:p-8 lg:p-10 min-h-[22rem]">
+        <div class="flex h-full flex-col justify-between gap-8">
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/8 border border-white/10 text-xs font-semibold text-white/75">Installation</div>
+            <h3 class="mt-5 text-2xl sm:text-3xl font-black tracking-tight">New system installs with a premium finish.</h3>
+            <p class="mt-4 text-white/68 leading-7">
+              Clean placement, careful sizing, and an install process that respects your property and the long-term efficiency of the system.
+            </p>
+          </div>
+          <div class="line-glow h-px w-full"></div>
+          <div class="flex items-center justify-between gap-4">
+            <div>
+              <div class="text-sm text-white/55">Standards</div>
+              <div class="font-semibold">Neat, reliable, built to last.</div>
             </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 auto-rows-[280px]">
-                <div class="glass-panel glass-card rounded-3xl p-8 md:col-span-2 md:row-span-2 flex flex-col justify-between reveal-up relative overflow-hidden group">
-                    <div class="absolute top-0 right-0 w-64 h-64 bg-brand-accent/10 rounded-full blur-[64px] transition-transform duration-700 group-hover:scale-150"></div>
-                    <div>
-                        <div class="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-6">
-                            <i class="fa-solid fa-microchip text-2xl text-brand-accent"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-3 text-white">Smart Home Integration</h3>
-                        <p class="text-gray-400 font-light leading-relaxed">Seamlessly connect your HVAC systems with high-end automation platforms. Control your environment down to the decimal from anywhere in the world.</p>
-                    </div>
-                    <div class="mt-8 flex gap-3">
-                        <span class="px-3 py-1 text-xs font-semibold uppercase tracking-wider rounded-full bg-white/5 border border-white/10 text-gray-300">Nest</span>
-                        <span class="px-3 py-1 text-xs font-semibold uppercase tracking-wider rounded-full bg-white/5 border border-white/10 text-gray-300">Ecobee</span>
-                        <span class="px-3 py-1 text-xs font-semibold uppercase tracking-wider rounded-full bg-white/5 border border-white/10 text-gray-300">Control4</span>
-                    </div>
-                </div>
-
-                <div class="glass-panel glass-card rounded-3xl p-8 flex flex-col justify-between reveal-up group">
-                    <div class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-4">
-                        <i class="fa-solid fa-volume-xmark text-xl text-gray-200"></i>
-                    </div>
-                    <div>
-                        <h3 class="text-lg font-bold mb-2">Acoustic Isolation</h3>
-                        <p class="text-sm text-gray-400 font-light">Whisper-quiet operations. Feel the comfort, don't hear the machine.</p>
-                    </div>
-                </div>
-
-                <div class="glass-panel glass-card rounded-3xl p-8 flex flex-col justify-between reveal-up group heat">
-                    <div class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-4">
-                        <i class="fa-solid fa-fire-flame-curved text-xl text-brand-heat"></i>
-                    </div>
-                    <div>
-                        <h3 class="text-lg font-bold mb-2">Rapid Thermal Response</h3>
-                        <p class="text-sm text-gray-400 font-light">Instantaneous climate correction utilizing advanced multistage compressors.</p>
-                    </div>
-                </div>
-
-                <div class="glass-panel glass-card rounded-3xl p-8 md:col-span-2 flex flex-col justify-center reveal-up relative overflow-hidden">
-                    <div class="absolute inset-0 bg-gradient-to-r from-brand-accent/5 to-transparent"></div>
-                    <div class="relative z-10 flex items-center justify-between">
-                        <div>
-                            <div class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-4">
-                                <i class="fa-solid fa-stopwatch text-xl text-brand-accent"></i>
-                            </div>
-                            <h3 class="text-xl font-bold mb-2">24/7 Concierge Support</h3>
-                            <p class="text-sm text-gray-400 font-light max-w-sm">Elite clients don't wait. Our priority response team is mobilized year-round, ensuring zero downtime for your comfort.</p>
-                        </div>
-                    </div>
-                </div>
+            <div class="w-14 h-14 rounded-2xl bg-white/8 border border-white/10 flex items-center justify-center">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 4V20M4 12H20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
             </div>
+          </div>
         </div>
-    </section>
+      </article>
 
-    <section id="packages" class="py-24 px-6 relative z-10 bg-black/20">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-20 reveal-up">
-                <h2 class="text-3xl md:text-5xl font-extrabold tracking-tight mb-4">Uncompromising <span class="text-gradient">Service Tiers</span></h2>
-                <p class="text-gray-400 font-light max-w-xl mx-auto">Transparent, premium structuring for maintenance, repair, and full estate installations.</p>
-            </div>
+      <article class="reveal premium-card bento-item md:col-span-4 rounded-[2rem] p-6 sm:p-8 min-h-[18rem]">
+        <div class="section-label">Maintenance</div>
+        <h3 class="mt-3 text-2xl font-black tracking-tight">Seasonal tune-ups</h3>
+        <p class="mt-3 text-white/68 leading-7">Efficiency checks, safety review, and preventative care that helps the system run cleaner.</p>
+      </article>
 
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
-                <div class="glass-panel glass-card rounded-3xl p-8 reveal-up">
-                    <h3 class="text-xl font-bold text-white mb-2">Precision Tune</h3>
-                    <p class="text-sm text-gray-400 font-light mb-6">Essential seasonal calibration for modern systems.</p>
-                    <div class="mb-8">
-                        <span class="text-4xl font-extrabold text-white">$149</span>
-                        <span class="text-gray-500 font-light">/visit</span>
-                    </div>
-                    <ul class="space-y-4 mb-8">
-                        <li class="flex items-start gap-3 text-sm text-gray-300">
-                            <i class="fa-solid fa-check text-brand-accent mt-1"></i> Comprehensive 40-point inspection
-                        </li>
-                        <li class="flex items-start gap-3 text-sm text-gray-300">
-                            <i class="fa-solid fa-check text-brand-accent mt-1"></i> Condenser coil chemical wash
-                        </li>
-                        <li class="flex items-start gap-3 text-sm text-gray-300">
-                            <i class="fa-solid fa-check text-brand-accent mt-1"></i> Refrigerant level optimization
-                        </li>
-                    </ul>
-                    <button class="w-full py-4 rounded-xl text-sm font-bold border border-white/20 hover:bg-white/5 transition-colors">Book Now</button>
-                </div>
+      <article class="reveal premium-card bento-item md:col-span-4 rounded-[2rem] p-6 sm:p-8 min-h-[18rem]">
+        <div class="section-label">Heating</div>
+        <h3 class="mt-3 text-2xl font-black tracking-tight">Reliable heating service</h3>
+        <p class="mt-3 text-white/68 leading-7">Furnace and heating support for cold snaps, comfort gaps, and system failures that need fast attention.</p>
+      </article>
 
-                <div class="glass-panel glass-card rounded-3xl p-10 relative transform lg:-translate-y-4 reveal-up border-brand-accent/30 shadow-[0_0_40px_rgba(0,240,255,0.1)]">
-                    <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                        <span class="bg-gradient-to-r from-brand-accent to-blue-500 text-brand-900 text-xs font-extrabold uppercase tracking-widest py-1.5 px-4 rounded-full shadow-lg">
-                            Elite Choice
-                        </span>
-                    </div>
-                    <h3 class="text-2xl font-bold text-white mb-2">Texas Elite Comfort Plan</h3>
-                    <p class="text-sm text-gray-400 font-light mb-6">Proactive, year-round white-glove maintenance.</p>
-                    <div class="mb-8">
-                        <span class="text-5xl font-extrabold text-white text-gradient-brand">$29</span>
-                        <span class="text-gray-500 font-light">/mo</span>
-                    </div>
-                    <ul class="space-y-4 mb-8">
-                        <li class="flex items-start gap-3 text-sm text-gray-200">
-                            <i class="fa-solid fa-check text-brand-accent mt-1"></i> Bi-annual holistic system overhauls
-                        </li>
-                        <li class="flex items-start gap-3 text-sm text-gray-200">
-                            <i class="fa-solid fa-check text-brand-accent mt-1"></i> Front-of-the-line priority dispatch
-                        </li>
-                        <li class="flex items-start gap-3 text-sm text-gray-200">
-                            <i class="fa-solid fa-check text-brand-accent mt-1"></i> 15% discount on all OEM parts
-                        </li>
-                        <li class="flex items-start gap-3 text-sm text-gray-200">
-                            <i class="fa-solid fa-check text-brand-accent mt-1"></i> Zero after-hours dispatch fees
-                        </li>
-                    </ul>
-                    <button class="magnetic w-full py-4 rounded-xl text-sm font-bold text-brand-900 bg-white hover:shadow-[0_0_20px_rgba(255,255,255,0.4)] transition-all">Enroll Today</button>
-                </div>
+      <article class="reveal premium-card bento-item md:col-span-4 rounded-[2rem] p-6 sm:p-8 min-h-[18rem]">
+        <div class="section-label">Priority</div>
+        <h3 class="mt-3 text-2xl font-black tracking-tight">Responsive emergency help</h3>
+        <p class="mt-3 text-white/68 leading-7">When the system drops at the wrong time, you need a team that answers quickly and works cleanly.</p>
+      </article>
+    </div>
+  </div>
+</section>
 
-                <div class="glass-panel glass-card rounded-3xl p-8 reveal-up heat">
-                    <h3 class="text-xl font-bold text-white mb-2">Bespoke Installation</h3>
-                    <p class="text-sm text-gray-400 font-light mb-6">Full property climate architecture and replacement.</p>
-                    <div class="mb-8">
-                        <span class="text-3xl font-extrabold text-white">Custom Quote</span>
-                    </div>
-                    <ul class="space-y-4 mb-8">
-                        <li class="flex items-start gap-3 text-sm text-gray-300">
-                            <i class="fa-solid fa-check text-brand-heat mt-1"></i> 3D thermal mapping of property
-                        </li>
-                        <li class="flex items-start gap-3 text-sm text-gray-300">
-                            <i class="fa-solid fa-check text-brand-heat mt-1"></i> Ultra-high SEER2 system matching
-                        </li>
-                        <li class="flex items-start gap-3 text-sm text-gray-300">
-                            <i class="fa-solid fa-check text-brand-heat mt-1"></i> Custom ductwork engineering
-                        </li>
-                    </ul>
-                    <button class="w-full py-4 rounded-xl text-sm font-bold border border-white/20 hover:bg-white/5 transition-colors">Request Consultation</button>
-                </div>
-            </div>
+<section id="why" class="relative py-24 sm:py-28">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-12 gap-6 items-center">
+      <div class="reveal lg:col-span-5">
+        <div class="section-label">Why Elite</div>
+        <h2 class="mt-3 font-display text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight">The difference is in the finish, not the talk.</h2>
+        <p class="mt-5 text-white/68 leading-8 max-w-xl">
+          Good HVAC work should disappear into the background. The system should run smoothly, the property should stay clean, and the customer should feel informed at every step.
+        </p>
+      </div>
+
+      <div class="lg:col-span-7 grid sm:grid-cols-2 gap-5">
+        <div class="reveal premium-card rounded-[2rem] p-6 sm:p-7">
+          <div class="w-12 h-12 rounded-2xl bg-white/8 border border-white/10 flex items-center justify-center mb-5">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2L19.5 6V18L12 22L4.5 18V6L12 2Z" stroke="currentColor" stroke-width="1.8"/><path d="M8.5 12.2L10.9 14.6L15.6 9.9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3 class="text-xl font-bold">Clear diagnosis</h3>
+          <p class="mt-3 text-white/66 leading-7">You get straight answers about what is wrong, what matters, and what should happen next.</p>
         </div>
-    </section>
-
-    <section id="faq" class="py-24 px-6 relative z-10">
-        <div class="max-w-3xl mx-auto">
-            <div class="text-center mb-16 reveal-up">
-                <h2 class="text-3xl md:text-5xl font-extrabold tracking-tight mb-4">Client Inquiries</h2>
-            </div>
-
-            <div class="space-y-4">
-                <div class="glass-panel border-white/10 rounded-2xl reveal-up overflow-hidden">
-                    <button class="accordion-btn w-full px-8 py-6 text-left flex justify-between items-center focus:outline-none group">
-                        <span class="text-lg font-semibold text-gray-200 group-hover:text-white transition-colors">Do you service commercial properties?</span>
-                        <div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center border border-white/10">
-                            <i class="fa-solid fa-plus accordion-icon text-brand-accent"></i>
-                        </div>
-                    </button>
-                    <div class="accordion-content">
-                        <div class="accordion-inner">
-                            <div class="px-8 pb-6 text-gray-400 font-light text-sm leading-relaxed">
-                                Yes. Texas Elite designs, installs, and maintains complex climate systems for premium commercial real estate, retail spaces, and luxury residential complexes. We engineer for maximum efficiency and aesthetic integration.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="glass-panel border-white/10 rounded-2xl reveal-up overflow-hidden">
-                    <button class="accordion-btn w-full px-8 py-6 text-left flex justify-between items-center focus:outline-none group">
-                        <span class="text-lg font-semibold text-gray-200 group-hover:text-white transition-colors">How fast is your emergency response time?</span>
-                        <div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center border border-white/10">
-                            <i class="fa-solid fa-plus accordion-icon text-brand-accent"></i>
-                        </div>
-                    </button>
-                    <div class="accordion-content">
-                        <div class="accordion-inner">
-                            <div class="px-8 pb-6 text-gray-400 font-light text-sm leading-relaxed">
-                                For our Elite Comfort Plan members, we guarantee front-of-the-line priority with typical on-site arrival within 2-4 hours, 24/7/365. Non-members are serviced as rapidly as our dispatch queue allows, usually same-day.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="glass-panel border-white/10 rounded-2xl reveal-up overflow-hidden">
-                    <button class="accordion-btn w-full px-8 py-6 text-left flex justify-between items-center focus:outline-none group">
-                        <span class="text-lg font-semibold text-gray-200 group-hover:text-white transition-colors">What brands do you install?</span>
-                        <div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center border border-white/10">
-                            <i class="fa-solid fa-plus accordion-icon text-brand-accent"></i>
-                        </div>
-                    </button>
-                    <div class="accordion-content">
-                        <div class="accordion-inner">
-                            <div class="px-8 pb-6 text-gray-400 font-light text-sm leading-relaxed">
-                                We are strictly brand-agnostic when it comes to finding the perfect solution for your architecture. However, we primarily utilize Tier-1 manufacturers such as Trane, Lennox, and Daikin for their proven reliability and superior technology.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="reveal premium-card rounded-[2rem] p-6 sm:p-7">
+          <div class="w-12 h-12 rounded-2xl bg-white/8 border border-white/10 flex items-center justify-center mb-5">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 13.5V20H20V13.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M12 4L18 10H14V16H10V10H6L12 4Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3 class="text-xl font-bold">Better airflow and efficiency</h3>
+          <p class="mt-3 text-white/66 leading-7">Repairs and maintenance are performed to improve consistency, comfort, and system longevity.</p>
         </div>
-    </section>
-
-    <footer class="glass-panel border-t border-white/10 pt-20 pb-10 px-6 relative z-10 mt-12 bg-black/50">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
-            <div class="md:col-span-5">
-                <a href="#" class="flex flex-col mb-6 inline-block">
-                    <span class="text-2xl font-extrabold tracking-tight text-white uppercase leading-none">Texas Elite</span>
-                    <span class="text-[0.65rem] font-medium tracking-widest text-brand-accent uppercase mt-1">Air Conditioning & Heating</span>
-                </a>
-                <p class="text-gray-400 font-light text-sm max-w-sm mb-8 leading-relaxed">
-                    Engineering superior indoor climates. We merge state-of-the-art thermal technology with uncompromising concierge-level service.
-                </p>
-                <div class="flex gap-4">
-                    <a href="#" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:border-brand-accent transition-all hover:-translate-y-1"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:border-brand-accent transition-all hover:-translate-y-1"><i class="fa-brands fa-linkedin-in"></i></a>
-                    <a href="#" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:border-brand-accent transition-all hover:-translate-y-1"><i class="fa-brands fa-facebook-f"></i></a>
-                </div>
-            </div>
-
-            <div class="md:col-span-3">
-                <h4 class="text-white font-bold mb-6 tracking-wide">Navigation</h4>
-                <ul class="space-y-4">
-                    <li><a href="#benefits" class="text-gray-400 hover:text-brand-accent transition-colors text-sm font-light">The Elite Difference</a></li>
-                    <li><a href="#services" class="text-gray-400 hover:text-brand-accent transition-colors text-sm font-light">Residential Services</a></li>
-                    <li><a href="#services" class="text-gray-400 hover:text-brand-accent transition-colors text-sm font-light">Commercial HVAC</a></li>
-                    <li><a href="#packages" class="text-gray-400 hover:text-brand-accent transition-colors text-sm font-light">Maintenance Plans</a></li>
-                </ul>
-            </div>
-
-            <div class="md:col-span-4">
-                <h4 class="text-white font-bold mb-6 tracking-wide">Direct Contact</h4>
-                <ul class="space-y-4">
-                    <li>
-                        <a href="tel:+15127497721" class="group flex items-center gap-4 text-gray-400 hover:text-white transition-colors">
-                            <div class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-brand-accent/20 group-hover:border-brand-accent/50 transition-all">
-                                <i class="fa-solid fa-phone text-sm"></i>
-                            </div>
-                            <span class="text-lg font-semibold tracking-wide">+1 512-749-7721</span>
-                        </a>
-                    </li>
-                    <li class="flex items-center gap-4 text-gray-400">
-                        <div class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center">
-                            <i class="fa-solid fa-envelope text-sm"></i>
-                        </div>
-                        <span class="text-sm font-light">concierge@texaselitehvac.com</span>
-                    </li>
-                    <li class="flex items-center gap-4 text-gray-400">
-                        <div class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center">
-                            <i class="fa-solid fa-location-dot text-sm"></i>
-                        </div>
-                        <span class="text-sm font-light">Austin, TX & Surrounding Areas</span>
-                    </li>
-                </ul>
-            </div>
+        <div class="reveal premium-card rounded-[2rem] p-6 sm:p-7">
+          <div class="w-12 h-12 rounded-2xl bg-white/8 border border-white/10 flex items-center justify-center mb-5">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M7 8V6.6C7 4.6 8.6 3 10.6 3H13.4C15.4 3 17 4.6 17 6.6V8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M5 8H19V20H5V8Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 13H15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </div>
+          <h3 class="text-xl font-bold">Clean, respectful work</h3>
+          <p class="mt-3 text-white/66 leading-7">The job should look professional from the start and be left cleaner than it was found.</p>
         </div>
-        
-        <div class="max-w-7xl mx-auto border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p class="text-gray-500 text-xs font-light">&copy; 2026 Texas Elite Air Conditioning & Heating LLC. All rights reserved. TACLA-Licensed & Insured.</p>
-            <div class="flex gap-6 text-xs text-gray-500 font-light">
-                <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
-                <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
-            </div>
+        <div class="reveal premium-card rounded-[2rem] p-6 sm:p-7">
+          <div class="w-12 h-12 rounded-2xl bg-white/8 border border-white/10 flex items-center justify-center mb-5">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 8V13L15.5 15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 21C16.4183 21 20 17.4183 20 13C20 8.58172 16.4183 5 12 5C7.58172 5 4 8.58172 4 13C4 17.4183 7.58172 21 12 21Z" stroke="currentColor" stroke-width="1.8"/></svg>
+          </div>
+          <h3 class="text-xl font-bold">Fast turnaround</h3>
+          <p class="mt-3 text-white/66 leading-7">When your comfort is down, we move fast and keep the process efficient.</p>
         </div>
-    </footer>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.27/bundled/lenis.min.js"></script>
+<section id="process" class="relative py-24 sm:py-28">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="reveal text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+      <div class="section-label">Process</div>
+      <h2 class="mt-3 font-display text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight">A clean, no-drama service flow.</h2>
+      <p class="mt-4 text-white/68 leading-8">The experience should feel premium from the first call through the final handoff.</p>
+    </div>
 
-    <script>
-        // 1. Initialize Lenis (Smooth Scrolling)
-        const lenis = new Lenis({
-            duration: 1.2,
-            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-            direction: 'vertical',
-            gestureDirection: 'vertical',
-            smooth: true,
-            mouseMultiplier: 1,
-            smoothTouch: false,
-            touchMultiplier: 2,
-            infinite: false,
+    <div class="grid md:grid-cols-3 gap-5">
+      <div class="reveal premium-card rounded-[2rem] p-7 sm:p-8">
+        <div class="text-elite-200 font-black text-5xl">01</div>
+        <h3 class="mt-5 text-2xl font-bold">You call.</h3>
+        <p class="mt-3 text-white/66 leading-7">We listen, gather the key details, and get the right service direction moving without wasted back-and-forth.</p>
+      </div>
+      <div class="reveal premium-card rounded-[2rem] p-7 sm:p-8">
+        <div class="text-elite-200 font-black text-5xl">02</div>
+        <h3 class="mt-5 text-2xl font-bold">We inspect.</h3>
+        <p class="mt-3 text-white/66 leading-7">A focused evaluation identifies the actual issue and the most sensible path to solve it.</p>
+      </div>
+      <div class="reveal premium-card rounded-[2rem] p-7 sm:p-8">
+        <div class="text-elite-200 font-black text-5xl">03</div>
+        <h3 class="mt-5 text-2xl font-bold">Comfort returns.</h3>
+        <p class="mt-3 text-white/66 leading-7">Work is completed carefully, the system is tested, and you get back to stable comfort.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="relative py-24 sm:py-28">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="reveal premium-card rounded-[2.2rem] p-6 sm:p-8 lg:p-12 overflow-hidden">
+      <div class="grid lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-7">
+          <div class="section-label">Contact</div>
+          <h2 class="mt-3 font-display text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight">Ready for comfort that feels premium?</h2>
+          <p class="mt-5 text-white/68 leading-8 max-w-2xl">
+            Call Texas Elite Air Conditioning &amp; Heating LLC and get a direct line to a team that takes AC and heating seriously.
+          </p>
+        </div>
+        <div class="lg:col-span-5 flex flex-col sm:flex-row lg:flex-col gap-4 lg:justify-end">
+          <a href="tel:+15127497721" class="magnetic inline-flex items-center justify-center gap-3 px-7 py-4 rounded-full button-liquid text-white font-extrabold text-sm sm:text-base">
+            Call +1 512-749-7721
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M7.5 3.5H9.8C10.4 3.5 10.9 3.9 11.1 4.4L12.1 7.1C12.3 7.7 12.1 8.3 11.7 8.8L10.2 10.3C11.4 12.7 13.3 14.6 15.7 15.8L17.2 14.3C17.7 13.9 18.3 13.7 18.9 13.9L21.6 14.9C22.1 15.1 22.5 15.6 22.5 16.2V18.5C22.5 20 21.3 21.1 19.8 21C11 20.7 4.3 14 4 5.2C3.9 3.7 5 2.5 6.5 2.5H7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="mailto:info@texaseliteair.com" class="magnetic inline-flex items-center justify-center gap-3 px-7 py-4 rounded-full button-ghost text-white font-semibold text-sm sm:text-base">
+            Email for service coordination
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  </main>  <footer class="relative border-t border-white/10 py-14 sm:py-16">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-12 gap-10">
+        <div class="lg:col-span-5">
+          <a href="#home" class="inline-flex items-center gap-3 group">
+            <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-elite-400 via-elite-500 to-elite-700 shadow-glow flex items-center justify-center">
+              <span class="text-white font-black text-lg tracking-tight">TE</span>
+            </div>
+            <div>
+              <div class="text-sm font-extrabold tracking-tight">Texas Elite Air Conditioning &amp; Heating LLC</div>
+              <div class="text-xs text-white/55 mt-1">Premium comfort service for Texas homes and businesses</div>
+            </div>
+          </a>
+          <p class="mt-5 max-w-lg text-white/64 leading-7">
+            Expert AC and heating service with a high-end experience, clear communication, and careful execution from start to finish.
+          </p>
+        </div><div class="lg:col-span-2">
+      <div class="text-xs uppercase tracking-[0.28em] text-white/45 font-semibold">Navigate</div>
+      <div class="mt-5 grid gap-3">
+        <a href="#services" class="footer-link">Services</a>
+        <a href="#why" class="footer-link">Why Elite</a>
+        <a href="#process" class="footer-link">Process</a>
+        <a href="#contact" class="footer-link">Contact</a>
+      </div>
+    </div>
+
+    <div class="lg:col-span-3">
+      <div class="text-xs uppercase tracking-[0.28em] text-white/45 font-semibold">Contact</div>
+      <div class="mt-5 grid gap-3 text-white/72">
+        <a href="tel:+15127497721" class="footer-link">+1 512-749-7721</a>
+        <a href="mailto:info@texaseliteair.com" class="footer-link">info@texaseliteair.com</a>
+        <div>Texas, United States</div>
+      </div>
+    </div>
+
+    <div class="lg:col-span-2">
+      <div class="text-xs uppercase tracking-[0.28em] text-white/45 font-semibold">Social</div>
+      <div class="mt-5 flex items-center gap-3">
+        <a href="#home" aria-label="Instagram" class="icon-chip">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="17.2" cy="6.8" r="1.2" fill="currentColor"/></svg>
+        </a>
+        <a href="#home" aria-label="Facebook" class="icon-chip">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M14 8.5V7.2C14 6.3 14.5 5.9 15.3 5.9H17V2H14.7C11.8 2 10 3.8 10 6.7V8.5H7V12H10V22H14V12H17L17.5 8.5H14Z" fill="currentColor"/></svg>
+        </a>
+        <a href="#home" aria-label="X" class="icon-chip">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 4L20 20M20 4L4 20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-10 pt-6 border-t border-white/10 flex flex-col sm:flex-row gap-3 items-start sm:items-center justify-between text-sm text-white/48">
+    <p>© <span id="year"></span> Texas Elite Air Conditioning &amp; Heating LLC. All rights reserved.</p>
+    <p>Built for performance, trust, and premium conversion.</p>
+  </div>
+</div>
+
+  </footer>  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true,
+      wheelMultiplier: 1,
+      touchMultiplier: 1.2
+    });
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add((time) => lenis.raf(time * 1000));
+    gsap.ticker.lagSmoothing(0);
+
+    const magneticEls = document.querySelectorAll('.magnetic');
+    magneticEls.forEach((el) => {
+      const strength = 18;
+      el.addEventListener('mousemove', (e) => {
+        const rect = el.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        gsap.to(el, {
+          x: x / rect.width * strength,
+          y: y / rect.height * strength,
+          duration: 0.35,
+          ease: 'power3.out'
         });
+      });
+      el.addEventListener('mouseleave', () => {
+        gsap.to(el, { x: 0, y: 0, duration: 0.5, ease: 'elastic.out(1, 0.4)' });
+      });
+    });
 
-        function raf(time) {
-            lenis.raf(time);
-            requestAnimationFrame(raf);
+    const reveals = document.querySelectorAll('.reveal');
+    reveals.forEach((el, i) => {
+      gsap.fromTo(el,
+        { autoAlpha: 0, y: 26 },
+        {
+          autoAlpha: 1,
+          y: 0,
+          duration: 1.0,
+          ease: 'power3.out',
+          delay: i * 0.01,
+          scrollTrigger: {
+            trigger: el,
+            start: 'top 82%',
+            once: true
+          }
         }
-        requestAnimationFrame(raf);
+      );
+    });
 
-        // Connect Lenis to GSAP ScrollTrigger
-        gsap.registerPlugin(ScrollTrigger);
-        lenis.on('scroll', ScrollTrigger.update);
-        gsap.ticker.add((time)=>{
-            lenis.raf(time * 1000);
-        });
-        gsap.ticker.lagSmoothing(0);
+    gsap.from('.hero-orb', {
+      scale: 0.85,
+      opacity: 0,
+      duration: 1.8,
+      stagger: 0.15,
+      ease: 'power3.out'
+    });
 
-        // 2. Remove initial hidden state to prevent FOUC, handled gracefully by GSAP
-        document.querySelectorAll('.reveal-up, .reveal-fade').forEach(el => {
-            el.style.visibility = 'visible';
-        });
+    gsap.to('.hero-orb', {
+      y: 40,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: 'body',
+        start: 'top top',
+        end: 'bottom bottom',
+        scrub: 0.6
+      }
+    });
 
-        // 3. Staggered Reveal Animations
-        const revealElements = gsap.utils.toArray('.reveal-up');
-        revealElements.forEach((elem) => {
-            gsap.fromTo(elem, 
-                { y: 60, opacity: 0 },
-                {
-                    y: 0,
-                    opacity: 1,
-                    duration: 1.2,
-                    ease: "power3.out",
-                    scrollTrigger: {
-                        trigger: elem,
-                        start: "top 85%", // Triggers when top of element hits 85% of viewport height
-                        toggleActions: "play none none reverse"
-                    }
-                }
-            );
-        });
+    const cards = document.querySelectorAll('.premium-card');
+    cards.forEach((card) => {
+      card.addEventListener('mouseenter', () => {
+        gsap.to(card, { y: -6, scale: 1.03, duration: 0.35, ease: 'power2.out' });
+      });
+      card.addEventListener('mouseleave', () => {
+        gsap.to(card, { y: 0, scale: 1, duration: 0.45, ease: 'power3.out' });
+      });
+    });
 
-        // 4. Navbar blur on scroll
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('bg-brand-900/80');
-            } else {
-                navbar.classList.remove('bg-brand-900/80');
-            }
-        });
+    gsap.utils.toArray('.line-glow').forEach((line) => {
+      gsap.fromTo(line, { scaleX: 0, transformOrigin: 'left center' }, {
+        scaleX: 1,
+        duration: 1.2,
+        ease: 'power2.out',
+        scrollTrigger: { trigger: line, start: 'top 85%', once: true }
+      });
+    });
 
-        // 5. Magnetic Button Effect (Micro-interaction)
-        const magneticButtons = document.querySelectorAll('.magnetic');
-        magneticButtons.forEach(btn => {
-            btn.addEventListener('mousemove', (e) => {
-                const rect = btn.getBoundingClientRect();
-                const x = e.clientX - rect.left - rect.width / 2;
-                const y = e.clientY - rect.top - rect.height / 2;
-                
-                // Move button slightly towards mouse
-                gsap.to(btn, {
-                    x: x * 0.3,
-                    y: y * 0.3,
-                    duration: 0.6,
-                    ease: "power3.out"
-                });
-                
-                // If it contains an icon/text, move it even more for parallax
-                const inner = btn.querySelector('span');
-                if(inner) {
-                    gsap.to(inner, {
-                        x: x * 0.15,
-                        y: y * 0.15,
-                        duration: 0.6,
-                        ease: "power3.out"
-                    });
-                }
-            });
+    const year = document.getElementById('year');
+    year.textContent = new Date().getFullYear();
 
-            btn.addEventListener('mouseleave', () => {
-                gsap.to(btn, { x: 0, y: 0, duration: 0.8, ease: "elastic.out(1, 0.3)" });
-                const inner = btn.querySelector('span');
-                if(inner) {
-                    gsap.to(inner, { x: 0, y: 0, duration: 0.8, ease: "elastic.out(1, 0.3)" });
-                }
-            });
-        });
-
-        // 6. Accordion Logic
-        const accordions = document.querySelectorAll('.accordion-btn');
-        accordions.forEach(btn => {
-            btn.addEventListener('click', function() {
-                const content = this.nextElementSibling;
-                const isActive = this.classList.contains('active');
-
-                // Close all other accordions
-                document.querySelectorAll('.accordion-content').forEach(el => el.classList.remove('open'));
-                document.querySelectorAll('.accordion-btn').forEach(el => el.classList.remove('active'));
-
-                // Open this one if it wasn't already active
-                if (!isActive) {
-                    this.classList.add('active');
-                    content.classList.add('open');
-                }
-            });
-        });
-    </script>
-</body>
+    window.addEventListener('load', () => {
+      ScrollTrigger.refresh();
+    });
+  </script></body>
 </html>
